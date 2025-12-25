@@ -173,8 +173,63 @@
             padding-top: 80px;
         }
 
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
         .hero-content {
             animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-photo {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .photo-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .photo-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--accent-green);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 255, 136, 0.4);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-glow {
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border-radius: 20px;
+            filter: blur(30px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
         }
 
         @keyframes fadeInUp {
@@ -630,6 +685,19 @@
                 font-size: 1.2rem;
             }
 
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .photo-container {
+                max-width: 300px;
+            }
+
             .section-title {
                 font-size: 2rem;
             }
@@ -690,19 +758,29 @@
     <!-- Hero Section -->
     <section class="hero" id="about">
         <div class="container">
-            <div class="hero-content">
-                <div class="terminal-text">system.initialize()</div>
-                <h1>Shrawani Pagar</h1>
-                <div class="hero-subtitle">Security Engineer & Threat Intelligence Researcher</div>
-                <p class="hero-description">
-                    Masters student at Carnegie Mellon University specializing in Information Security and AI Security. 
-                    Experienced in IPS/IDS development, CI/CD security automation, and threat intelligence. 
-                    CEH & CSCU certified with a proven track record in offensive security research and incident response.
-                </p>
-                <div class="btn-group">
-                    <a href="#projects" class="btn btn-primary"><span>View Projects</span></a>
-                    <a href="https://www.linkedin.com/in/shrawani-js/" target="_blank" class="btn btn-secondary"><span>View LinkedIn</span></a>
-                    <a href="https://github.com/winnie14742" target="_blank" class="btn btn-secondary"><span>View GitHub</span></a>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="terminal-text">system.initialize()</div>
+                    <h1>Shrawani Pagar</h1>
+                    <div class="hero-subtitle">Security Engineer & Threat Intelligence Researcher</div>
+                    <p class="hero-description">
+                        Masters student at Carnegie Mellon University specializing in Information Security and AI Security. 
+                        Experienced in IPS/IDS development, CI/CD security automation, and threat intelligence. 
+                        CEH & CSCU certified with a proven track record in offensive security research and incident response.
+                    </p>
+                    <div class="btn-group">
+                        <a href="#projects" class="btn btn-primary"><span>View Projects</span></a>
+                        <a href="https://www.linkedin.com/in/shrawani-js/" target="_blank" class="btn btn-secondary"><span>View LinkedIn</span></a>
+                        <a href="https://github.com/winnie14742" target="_blank" class="btn btn-secondary"><span>View GitHub</span></a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <div class="photo-container">
+                        <div class="photo-glow"></div>
+                        <div class="photo-frame">
+                            <img src="profile-photo.png" alt="Shrawani Pagar - Security Engineer">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -848,9 +926,6 @@
                             <span class="tag">TLS/mTLS</span>
                             <span class="tag">Python</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Details →</a>
-                        </div>
                     </div>
                 </div>
 
@@ -875,7 +950,7 @@
                             <span class="tag">210K+ Attacks</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Research →</a>
+                            <a href="https://ieeexplore.ieee.org/document/10063105" target="_blank" class="project-link">View Research →</a>
                         </div>
                     </div>
                 </div>
@@ -900,7 +975,7 @@
                             <span class="tag">Threat Detection</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View System →</a>
+                            <a href="https://www.jetir.org/view?paper=JETIR2305F76" target="_blank" class="project-link">View Research →</a>
                         </div>
                     </div>
                 </div>
@@ -923,9 +998,6 @@
                             <span class="tag">Cryptography</span>
                             <span class="tag">Exploit Dev</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Technical Writeup →</a>
-                        </div>
                     </div>
                 </div>
 
@@ -946,9 +1018,6 @@
                             <span class="tag">Web Security</span>
                             <span class="tag">Cryptanalysis</span>
                             <span class="tag">50+ CTFs</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Challenges →</a>
                         </div>
                     </div>
                 </div>
@@ -971,9 +1040,6 @@
                             <span class="tag">TCP Analysis</span>
                             <span class="tag">DNS Security</span>
                             <span class="tag">Protocol Research</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Labs →</a>
                         </div>
                     </div>
                 </div>
